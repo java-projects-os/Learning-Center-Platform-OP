@@ -3,6 +3,7 @@ package org.intellectsoft.platform.u20221c486.portfolio.infrastructure.persisten
 import org.intellectsoft.platform.u20221c486.portfolio.domain.model.aggregates.WebApplication;
 import org.intellectsoft.platform.u20221c486.shared.domain.model.valueobjects.WebAddress;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * WebApplicationRepository
@@ -13,7 +14,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author Paul Sulca
  */
-
+@Repository
 public interface WebApplicationRepository extends JpaRepository<WebApplication, Long> {
     boolean existsByFrontendUrl(WebAddress frontendUrl);
     boolean existsByBackendUrl(WebAddress backendUrl);
