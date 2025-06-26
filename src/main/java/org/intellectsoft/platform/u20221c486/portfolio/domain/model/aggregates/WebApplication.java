@@ -42,7 +42,7 @@ public class WebApplication extends AuditableAbstractAggregateRoot<WebApplicatio
     private FrontendStack frontendStack;
 
     @Embedded
-    @AttributeOverride(name  = "webAddress", column = @Column(name = "frontend_url", nullable = false))
+    @AttributeOverride(name  = "webAddress", column = @Column(name = "frontend_url", nullable = false, length = 512))
     private WebAddress frontendUrl;
 
     @Convert(converter = BackendStackConverter.class)

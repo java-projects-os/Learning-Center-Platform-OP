@@ -42,14 +42,20 @@ public record CreateWebApplicationCommand(
         if (clientId == null || clientId <= 0) {
             throw new IllegalArgumentException("Invalid clientId: " + clientId);
         }
-        if (frontendUrl == null || frontendUrl.isEmpty() || frontendUrl.length() > 512) {
+        if (frontendUrl == null || frontendUrl.isEmpty()) {
             throw new IllegalArgumentException("Invalid frontendStack: " + frontendStack);
+        }
+        if (frontendUrl.length() > 512) {
+            throw new IllegalArgumentException("Frontend URL cannot exceed 512 characters");
         }
         if (frontendStack == null || frontendStack.isEmpty()) {
             throw new IllegalArgumentException("Invalid frontendStack: " + frontendStack);
         }
-        if (backendUrl == null || backendUrl.isEmpty() || backendUrl.length() > 512) {
+        if (backendUrl == null || backendUrl.isEmpty()) {
             throw new IllegalArgumentException("Inavlid backendStack: " + backendStack);
+        }
+        if (backendUrl.length() > 512) {
+            throw new IllegalArgumentException("Backend URL cannot exceed 512 characters");
         }
         if (backendStack == null || backendStack.isEmpty()) {
             throw new IllegalArgumentException("Invalid backendStack: " + backendStack);
